@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-server",
+  "version": "1.0.0",
+  "description": "Nodejs application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barakaally/nodejs-server.git"
+  },
+  "keywords": [],
+  "author": "Baraka ally",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barakaally/nodejs-server/issues"
+  },
+  "homepage": "https://github.com/barakaally/nodejs-server#readme"
+}
