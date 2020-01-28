@@ -1,10 +1,16 @@
 const http = require("http");
 const routes = require("./routes");
+
 class BuildServer {
     constructor(port) {
         this.port = port;
         this.server = http.createServer((req, resp) => {
-            (req.url in routes) ? routes[req.url](req, resp) : routes["/404"](req, resp);
+            if (req.method in routes) {
+                return routes[req.method](req, resp);
+            } else {
+                routes["/error"](req, resp);
+            }
+
         });
 
     }

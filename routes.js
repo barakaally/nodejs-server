@@ -1,9 +1,10 @@
-const HomeController = require("./controllers/homeController");
+const Controller = require("./controllers/controller");
 const Routes = {
-    "/": (req, res) => HomeController.index(req, res),
-    "/users": (req, res) => HomeController.users(req, res),
-    "/products": (req, res) => HomeController.products(req, res),
-    "/404": (req, res) => res.end("Sorry page you are looking not found")
+    GET: (req, res) => Controller.get(req, res),
+    POST: (req, res) => Controller.post(req, res),
+    PUT: (req, res) => Controller.put(req, res),
+    DELETE: (req, res) => Controller.delete(req, res),
+    "/error": (req, res) => Controller.unsupported(req, res),
 }
 
 module.exports = Routes;
