@@ -1,4 +1,5 @@
 const Action = require("../actions/action");
+const url = require("url");
 class Controller {
     constructor() {
 
@@ -7,7 +8,7 @@ class Controller {
     static get(request, ack) {
         const object = {
             method: request.method,
-            url: request.url,
+            url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
         return Action.ok(object, ack);
@@ -16,7 +17,7 @@ class Controller {
     static post(request, ack) {
         const object = {
             method: request.method,
-            url: request.url,
+            url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
         return Action.created(object, ack);
@@ -25,7 +26,7 @@ class Controller {
     static put(request, ack) {
         const object = {
             method: request.method,
-            url: request.url,
+            url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
         return Action.accepted(object, ack);
@@ -34,7 +35,7 @@ class Controller {
     static delete(request, ack) {
         const object = {
             method: request.method,
-            url: request.url,
+            url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
         return Action.accepted(object, ack);
@@ -43,7 +44,7 @@ class Controller {
     static unsupported(request, ack) {
         const object = {
             method: request.method,
-            url: request.url,
+            url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
         return Action.unsupport(object, ack);
