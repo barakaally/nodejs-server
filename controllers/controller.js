@@ -13,7 +13,7 @@ class Controller {
         }
 
         if (request.url = "/") {
-            return Action.view('./views/home.html', ack);
+            return Action.view('index.html', ack);
         }
 
         return Action.ok(object, ack);

@@ -38,7 +38,7 @@ class Action {
 
     static view(htmlRef, ack) {
         ack.writeHead(200, { "content-type": "text/html; charset=UTF-8" });
-        fs.readFile(htmlRef, (err, data) => {
+        fs.readFile(`./views/${htmlRef}`, (err, data) => {
             if (err) throw err;
             ack.write(data);
             ack.end();
