@@ -11,6 +11,11 @@ class Controller {
             url: url.parse(request.url),
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
+
+        if (request.url = "/") {
+            return Action.view('./views/home.html', ack);
+        }
+
         return Action.ok(object, ack);
     }
 
