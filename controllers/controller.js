@@ -12,8 +12,9 @@ class Controller {
             description: "Try request with other method[POST,PUT,DELETE,GET] or different url"
         }
 
-        if (request.url = "/") {
-            return Action.view('index.html', ack);
+    
+        if (request.url.includes('assets')) {
+            return Action.loadAsset(request.url, ack);
         }
 
         return Action.ok(object, ack);

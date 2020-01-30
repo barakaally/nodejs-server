@@ -36,10 +36,12 @@ class Action {
         return this.responseBuilder(statusCode, ack, object);
     }
 
-    static view(htmlRef, ack) {
-        ack.writeHead(200, { "content-type": "text/html; charset=UTF-8" });
-        fs.readFile(`./views/${htmlRef}`, (err, data) => {
-            if (err) throw err;
+    static loadAsset(filePath, ack) {
+        ack.writeHead(200, { "content-type": "image/png;" });
+        fs.readFile(`./${filePath}`, (err, data) => {
+            if (err) {
+                return this.notFound({ "error": { code: "404", file: filePath } }, ack);
+            }
             ack.write(data);
             ack.end();
         });
